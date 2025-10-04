@@ -2,11 +2,22 @@ import React from 'react'
 
 // import from react-router (installation)
 import { createBrowserRouter } from "react-router";
+import Roots from '../pages/Root/Roots';
+import EroorPage from '../pages/Erropage/EroorPage';
+import Home from '../pages/Home/Home';
 
 // createBrowserRouter also import from react-router (installation)
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World Ehasun</div>,
+    Component: Roots,
+    errorElement: <EroorPage></EroorPage>,
+    children: [
+        {
+            index: true, 
+            path: "/",
+            Component: Home
+        }
+    ]
   },
 ]);
