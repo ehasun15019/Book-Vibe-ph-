@@ -5,6 +5,8 @@ import { createBrowserRouter } from "react-router";
 import Roots from '../pages/Root/Roots';
 import EroorPage from '../pages/Erropage/EroorPage';
 import Home from '../pages/Home/Home';
+import About from '../pages/About/About';
+import BookDetails from '../pages/BookDetails/BookDetails';
 
 // createBrowserRouter also import from react-router (installation)
 export const router = createBrowserRouter([
@@ -15,11 +17,26 @@ export const router = createBrowserRouter([
     children: [
         {
             index: true,  
+            // in router.jsx file we use loader function for fetch data from booksData.json file
             loader: () => {
-             return fetch('booksData.json')
+             return fetch('/booksData.json')
             },
-            path: "/",
+            path: '/',
             Component: Home
+        },
+        {
+          path: "/about",
+          Component: About
+        },
+
+        // daynamic route create for evey books
+        {
+          /*---- id নামে জেই Params নিছি সেটা BooksDetails useParams dore nia jete hobe ---- */
+          path: "/bookDetails/:id",
+          Component: BookDetails,
+          loader: () => {
+            return fetch('/booksData.json');
+          }
         }
     ]
   },

@@ -1,11 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router'
+
 
 const Navbar = () => {
 
   const navLinks = <>
-    <li className='m-2'><a href="">Home</a></li>
-    <li className='m-2'><a href="">Listed Book</a></li>
-    <li className='m-2'><a href="">Page to read</a></li>
+    <Link to='/'><li className='m-2'>Home</li></Link>
+    <li className='m-2'>Listed Book</li>
+    <li className='m-2'>Page to read</li>
   </>
 
   return (
@@ -24,7 +26,7 @@ const Navbar = () => {
                 }
             </ul>
           </div>
-          <a href='#' className="text-xl font-bold">Book Vibe</a>
+          <Link to='/' className="text-xl font-bold">Book Vibe</Link>
         </div>
 
         <div className="navbar-center hidden lg:flex">

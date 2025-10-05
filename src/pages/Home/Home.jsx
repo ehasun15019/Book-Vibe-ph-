@@ -4,6 +4,7 @@ import Book from '../Books/Book'
 import { useLoaderData } from 'react-router'
 
 const Home = () => {
+  // so here we use useLoaderData function for get that data from router.jsx file
   const data = useLoaderData();
   
   return (
