@@ -1,3 +1,4 @@
+/* mark as read functionality start */
 const getBookStore = () => {
     const storeBookStr = localStorage.getItem("readList");
 
@@ -22,5 +23,33 @@ const addToDB = (id) => {
         console.log(storeBooks);
     }
 }
+/* mark as read functionality end */
 
-export {addToDB};
+
+/* Add to wishList functionality start */
+const getWishListStore = () => {
+    const whishListStr = localStorage.getItem("wishList");
+
+    if(whishListStr) {
+        const wishListData = JSON.parse(whishListStr);
+        return wishListData;
+    }else {
+        return [];
+    }
+}
+
+const addToWishListDB = (id) => {
+    const wishListStored = getWishListStore();
+
+    if(wishListStored.includes(id)) {
+        alert("You have already added this book in your wishlist");
+    } else {
+        wishListStored.push(id);
+        const getWishListdata = JSON.stringify(wishListStored);
+    localStorage.setItem("wishList", getWishListdata);
+        console.log(wishListStored);       
+    }
+}
+/* Add to wishList functionality end */
+
+export {addToDB, getBookStore, addToWishListDB, getWishListStore};

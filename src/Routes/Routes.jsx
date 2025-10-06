@@ -6,6 +6,7 @@ import Roots from '../pages/Root/Roots';
 import EroorPage from '../pages/Erropage/EroorPage';
 import Home from '../pages/Home/Home';
 import BookDetails from '../pages/BookDetails/BookDetails';
+import ReadList from '../pages/ReadList/ReadList';
 
 // createBrowserRouter also import from react-router (installation)
 export const router = createBrowserRouter([
@@ -32,6 +33,15 @@ export const router = createBrowserRouter([
           loader: () => {
             return fetch('/booksData.json');
           }
+        },
+
+        // read list page route
+        {
+          path: "readList",
+          Component: ReadList,
+          loader: () => {
+            return fetch('/booksData.json')
+          },
         }
     ]
   },
