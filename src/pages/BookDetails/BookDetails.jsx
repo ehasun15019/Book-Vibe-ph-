@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLoaderData, useParams } from 'react-router';
 import './BookDetails.css'
+import { addToDB } from '../../Utilities/addToDB';
 
 const BookDetails = () => {
   // useParams use for get the daynamic id from url
@@ -15,8 +16,12 @@ const BookDetails = () => {
     return (item.bookId) === bookId;
   })
 
-  const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} = SingleBook
-  
+  const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} = SingleBook;
+
+  // read book save in local storage
+  const handelMarkAsRead = (bId) => {
+    addToDB(bId);
+  }
 
   return (
       <div className="my-10 px-4 max-w-6xl mx-auto">
@@ -80,7 +85,7 @@ const BookDetails = () => {
             </div>
 
             <div className="mt-4 flex flex-col sm:flex-row gap-3">
-              <button className="btn btn-outline w-full sm:w-auto">Mark as Read</button>
+              <button className="btn btn-outline" onClick={() => handelMarkAsRead(bookId)}>Mark as Read</button>
               <button className="btn btn-primary w-full sm:w-auto">Add to Wishlist</button>
             </div>
           </div>
