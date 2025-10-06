@@ -5,7 +5,6 @@ import { createBrowserRouter } from "react-router";
 import Roots from '../pages/Root/Roots';
 import EroorPage from '../pages/Erropage/EroorPage';
 import Home from '../pages/Home/Home';
-import About from '../pages/About/About';
 import BookDetails from '../pages/BookDetails/BookDetails';
 
 // createBrowserRouter also import from react-router (installation)
@@ -23,10 +22,6 @@ export const router = createBrowserRouter([
             },
             path: '/',
             Component: Home
-        },
-        {
-          path: "/about",
-          Component: About
         },
 
         // daynamic route create for evey books

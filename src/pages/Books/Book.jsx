@@ -15,7 +15,7 @@ const Book = ({data, bookId}) => {
               <BooksData 
                 key={item.bookId}
                 bookName={item.bookName}
-                author={item.author}
+                author={item.author}j
                 image={item.image}
                 rating={item.rating}
                 category={item.category}

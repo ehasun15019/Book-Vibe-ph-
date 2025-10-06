@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLoaderData, useParams } from 'react-router';
+import './BookDetails.css'
 
 const BookDetails = () => {
   // useParams use for get the daynamic id from url
@@ -30,7 +31,7 @@ const BookDetails = () => {
           </div>
 
           {/* Book Details */}
-          <div className="w-full space-y-4 flex-2">
+          <div className="w-full space-y-4 flex-2 right-sidebar">
             <h2 className="text-2xl font-bold">{bookName}</h2>
             <p className="text-gray-600">
               By: <span className="font-medium">{author}</span>
@@ -47,8 +48,8 @@ const BookDetails = () => {
                 <span className="font-bold">Review:</span> {review}
               </p>
 
-              <div className="flex flex-wrap gap-2 items-center">
-                <span className="font-semibold">Tags:</span>
+              <div className="flex flex-wrap gap-2 items-center pt-3">
+                <span className="font-bold">Tags:</span>
                 {Array.isArray(tags) &&
                   tags.map((tag, idx) => (
                     <span
@@ -79,7 +80,7 @@ const BookDetails = () => {
             </div>
 
             <div className="mt-4 flex flex-col sm:flex-row gap-3">
-              <button className="btn btn-outline w-full sm:w-auto">Read</button>
+              <button className="btn btn-outline w-full sm:w-auto">Mark as Read</button>
               <button className="btn btn-primary w-full sm:w-auto">Add to Wishlist</button>
             </div>
           </div>
